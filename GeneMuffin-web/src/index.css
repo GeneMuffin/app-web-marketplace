@@ -1,0 +1,150 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 50% 98%;
+    --foreground: 270 2% 26%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 270 2% 26%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 2% 26%;
+
+    --primary: 6 100% 73%;
+    --primary-foreground: 30 50% 98%;
+
+    --secondary: 30 100% 73%;
+    --secondary-foreground: 270 2% 26%;
+
+    --muted: 20 60% 90%;
+    --muted-foreground: 270 2% 46%;
+
+    --accent: 28 100% 95%;
+    --accent-foreground: 270 2% 26%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 30 50% 98%;
+
+    --border: 20 20% 90%;
+    --input: 20 20% 90%;
+    --ring: 6 100% 73%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 20 20% 90%;
+    --sidebar-ring: 6 100% 73%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden font-sans;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-work font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+
+  h2 {
+    @apply text-3xl sm:text-4xl md:text-5xl;
+  }
+
+  h3 {
+    @apply text-2xl sm:text-3xl;
+  }
+
+  p {
+    @apply leading-7 font-dm;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-lg rounded-2xl;
+  }
+  
+  .glass-button {
+    @apply backdrop-blur-md bg-gene-primary/90 hover:bg-gene-primary transition-all duration-300 text-white rounded-lg px-6 py-3 shadow-md hover:shadow-xl;
+  }
+  
+  .heading-underline {
+    @apply relative inline-block;
+  }
+  
+  .heading-underline::after {
+    content: '';
+    @apply absolute w-1/2 h-1 bg-gene-primary rounded-full bottom-0 left-0 -mb-2;
+  }
+  
+  .feature-card {
+    @apply relative overflow-hidden rounded-2xl transition-all duration-500 shadow-lg hover:shadow-xl;
+  }
+  
+  .feature-card::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-t from-black/70 to-transparent z-10;
+  }
+  
+  .parallax-bg {
+    @apply bg-fixed bg-center bg-no-repeat bg-cover;
+  }
+  
+  .section-padding {
+    @apply py-20 px-6 md:px-12;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}

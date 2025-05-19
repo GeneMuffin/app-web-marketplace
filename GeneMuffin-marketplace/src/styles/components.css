@@ -1,0 +1,187 @@
+@tailwind components;
+
+@layer components {
+  .gene-gradient {
+    background: linear-gradient(to right, rgb(146, 57, 49), rgb(255, 131, 119 / 0.8));
+  }
+
+  .tech-card {
+    @apply relative bg-tech-darker border border-tech-dark rounded-xl overflow-hidden;
+  }
+  
+  .tech-card::before {
+    content: '';
+    @apply absolute inset-0 bg-tech-grid opacity-20 pointer-events-none;
+    background-size: 20px 20px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+  
+  .tech-glow {
+    @apply relative;
+  }
+  
+  .tech-glow::after {
+    content: '';
+    @apply absolute -inset-0.5 rounded-xl bg-gradient-to-r from-tech-accent/30 to-gene-accent/20 opacity-0 transition-opacity duration-300 -z-10 blur-md;
+  }
+  
+  .tech-glow:hover::after {
+    @apply opacity-100;
+  }
+  
+  .grid-bg {
+    @apply relative overflow-hidden;
+  }
+  
+  .grid-bg::before {
+    content: '';
+    @apply absolute inset-0 bg-tech-grid opacity-10 pointer-events-none;
+    background-size: 30px 30px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+  
+  .scanner-line {
+    content: '';
+    @apply absolute left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-tech-accent to-transparent animate-tech-grid-scan;
+  }
+  
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10 dark:border-white/5;
+  }
+
+  /* Wallet tabs styling */
+  .wallet-tabs-list {
+    @apply w-full grid grid-cols-2 gap-0;
+  }
+  
+  .wallet-tab-trigger {
+    @apply w-full flex items-center justify-center;
+  }
+  
+  .wallet-tab-content {
+    @apply w-full;
+  }
+  
+  /* Mobile menu styling */
+  .mobile-menu-sheet {
+    border-right-color: #6c3137 !important;
+  }
+}
+
+/* Glass morphism effects */
+.glass {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Token card shimmer effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: linear-gradient(to bottom right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0) 100%);
+  transform: rotate(45deg);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+/* Images with mask */
+.image-mask {
+  mask-image: radial-gradient(circle at center, black 60%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at center, black 60%, transparent 70%);
+}
+
+/* Shimmer button animations */
+@keyframes shimmer-slide {
+  from {
+    transform: translateX(-100%) rotate(0);
+  }
+  to {
+    transform: translateX(100%) rotate(0);
+  }
+}
+
+@keyframes spin-around {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-shimmer-slide {
+  animation: shimmer-slide var(--speed, 3s) linear infinite;
+}
+
+.animate-spin-around {
+  animation: spin-around calc(var(--speed, 3s) * 2) linear infinite;
+}
+
+/* Enhanced white line effect */
+@keyframes border-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+.animate-border-pulse {
+  animation: border-pulse 2s ease-in-out infinite;
+}
