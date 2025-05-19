@@ -1,114 +1,153 @@
 
-# GeneMuffin Web Application
-
-![GeneMuffin Logo](public/images/Genemuffin-Logo-s.png)
+# GeneMuffin - Blockchain-Based DNA Data Platform
 
 ## Project Overview
 
-GeneMuffin is a web platform dedicated to genetic optimization and DNA insights. The application serves as a hub for health optimization through advanced genetic testing, a DNA marketplace, and matchmaking services. It aims to transform health insights through innovative genetic analysis, giving users personalized recommendations and data ownership.
+GeneMuffin is a blockchain-based platform that allows users to securely store, manage, and monetize their genetic data. The application provides a marketplace where users can purchase DNA test kits, submit their samples, and then control how their genetic information is shared with researchers, pharmaceutical companies, and other stakeholders in the healthcare ecosystem.
 
 ## Tech Stack
 
 - **Frontend Framework**: React 18 with TypeScript
 - **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **UI Components**: Shadcn UI component library
-- **State Management**: React Query (Tanstack Query)
-- **Routing**: React Router v6
-- **Animation**: Custom animations with Tailwind's animation utilities
+- **Styling**: Tailwind CSS with custom theme
+- **UI Components**: Shadcn UI library
+- **Animation**: Framer Motion
 - **Icons**: Lucide React
-- **Form Handling**: React Hook Form with Zod validation
-- **Notifications**: Sonner toast system
+- **State Management**: React Context API and TanStack Query
+- **Forms**: React Hook Form with Zod validation
+- **Routing**: React Router DOM
 
 ## Environment Requirements
 
 - Node.js v18.0.0 or higher
-- npm v9.0.0 or higher (or equivalent yarn/pnpm)
+- npm v8.0.0 or higher
 - Modern web browser (Chrome, Firefox, Safari, Edge)
 
 ## Installation Steps
 
-1. **Clone the repository**:
+1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd genemuffin-web
+   git clone https://github.com/yourusername/genemuffin.git
+   cd genemuffin
    ```
 
-2. **Install dependencies**:
+2. **Install dependencies**
    ```bash
    npm install
    ```
 
-3. **Start the development server**:
+3. **Start the development server**
    ```bash
    npm run dev
    ```
 
-4. **Access the application**:
-   Open your browser and navigate to `http://localhost:8080`
+4. **Access the application**
+   Open your browser and navigate to `http://localhost:5173`
 
 ## Project Structure
 
 ```
-genemuffin-web/
-├── public/             # Static assets
-│   └── images/         # Image assets
+genemuffin/
+├── public/              # Static assets
+│   └── images/          # Image assets
 ├── src/
-│   ├── assets/         # Project assets
-│   ├── components/     # Reusable UI components
-│   │   └── ui/         # Shadcn UI components
-│   ├── hooks/          # Custom React hooks
-│   ├── lib/            # Utility libraries and functions
-│   ├── pages/          # Page components
-│   └── utils/          # Utility functions
-├── index.html          # HTML entry point
-└── vite.config.ts      # Vite configuration
+│   ├── components/      # Reusable UI components
+│   │   ├── about/       # About page components
+│   │   ├── cart/        # Shopping cart components
+│   │   ├── checkout/    # Checkout process components
+│   │   ├── home/        # Home page components
+│   │   ├── layout/      # Layout components (Header, Sidebar, etc.)
+│   │   ├── marketplace/ # Marketplace components
+│   │   ├── ui/          # UI library components
+│   │   └── wallet/      # Wallet connection components
+│   ├── context/         # React context providers
+│   ├── hooks/           # Custom React hooks
+│   ├── lib/             # Utility functions
+│   ├── pages/           # Page components
+│   └── styles/          # Global styles
+├── .gitignore
+├── index.html
+├── package.json
+├── README.md
+├── tailwind.config.ts   # Tailwind configuration
+├── tsconfig.json        # TypeScript configuration
+└── vite.config.ts       # Vite configuration
 ```
 
 ## Core Features
 
-### Advanced Genetic Testing
-Comprehensive DNA analysis providing insights into health markers, genetic predispositions, and personalized recommendations.
+### 1. DNA Test Kit Marketplace
+- Browse and purchase DNA test kits
+- Secure checkout process with cryptocurrency payments
+- Order tracking and management
 
-### DNA Marketplace
-A platform for users to securely monetize their genetic data while maintaining ownership and control.
+### 2. Genetic Data Management
+- Secure storage of genetic data on blockchain
+- Fine-grained access control for data sharing
+- Visualization of genetic insights and reports
 
-### Genetic Matchmaking
-Tools for relationship compatibility based on genetic insights, helping users find compatible partners.
+### 3. Data Categories
+- Blood Data: Basic blood parameters and immune indicators
+- DNA Traits: Specific gene sequences and disease risk predictions
+- Kidney Profile: Chronic disease-related kidney physiological values
+- Microbiome: Gut microbiota analysis and health correlations
+- Health Risks: Predictive model summaries and individual risk values
 
-### Web3 Integration
-Blockchain-based security and data ownership features, ensuring users maintain control of their genetic information.
+### 4. Wallet Integration
+- Connect various cryptocurrency wallets
+- Manage digital assets and tokens
+- Track transaction history
+
+### 5. User Dashboard
+- Personalized genetic insights
+- Data sharing preferences and settings
+- Revenue tracking from data monetization
 
 ## Build Process
 
-1. **Development Build**:
+1. **Development Build**
    ```bash
    npm run dev
    ```
 
-2. **Production Build**:
+2. **Production Build**
    ```bash
    npm run build
    ```
 
+3. **Preview Production Build**
+   ```bash
+   npm run preview
+   ```
 
 ## Testing
 
-The application uses a combination of unit, integration, and end-to-end tests to ensure reliability:
-
-1. **Run Tests**:
-   ```bash
-   npm run test
-   ```
+### Unit Testing
+```bash
+npm run test
+```
 
 
 ## Deployment
 
-The application is configured for continuous deployment:
+### Standard Deployment
+1. Build the production bundle:
+   ```bash
+   npm run build
+   ```
 
-1. **Local Deployment**:
-   After building the application, serve the `dist` folder with a static file server.
+2. Deploy the contents of the `dist` directory to your web server or hosting platform of choice.
 
-2. **Production Deployment**:
-   The application can be deployed to any static hosting service like Vercel, Netlify, or AWS S3.
+### Deployment with CI/CD
+The project includes configuration for automated deployment through CI/CD pipelines:
+
+1. GitHub Actions workflow for automated testing and deployment
+2. Integration with Vercel/Netlify for preview deployments on pull requests
+3. Automated production deployment on merges to the main branch
+
+### Blockchain Network Configuration
+For production deployment, ensure the correct blockchain network is configured in the environment variables:
+- Ethereum Mainnet for production
+- Goerli or Sepolia Testnet for staging environments
+
 
