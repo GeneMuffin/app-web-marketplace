@@ -59,7 +59,7 @@ const Navbar = () => {
             Genetic Insights
           </button>
           <button 
-            onClick={() => scrollToSection('dna-marketplace')}
+            onClick={() => window.open("https://marketplace.genemuffin.com", "_blank")}
             className="text-foreground hover:text-gene-primary transition-colors font-medium"
           >
             DNA Marketplace
@@ -107,7 +107,7 @@ const Navbar = () => {
               Genetic Insights
             </button>
             <button 
-              onClick={() => scrollToSection('dna-marketplace')}
+              onClick={() => window.open("https://marketplace.genemuffin.com", "_blank")}
               className="text-foreground hover:text-gene-primary transition-colors py-2 text-center"
             >
               DNA Marketplace
