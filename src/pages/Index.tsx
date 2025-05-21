@@ -82,7 +82,7 @@ const Index = () => {
         description="With advanced testing, expert insights, and secure blockchain integration, we transform your DNA data into actionable wellness solutions and opportunities for monetization, putting you in control of its value. Your data is securely stored on the blockchain, ensuring privacy and tamper-proof protection."
         imageUrl="/images/advanced-testing.png"
         buttonText="Explore Marketplace"
-        buttonUrl="#"
+        buttonUrl="https://Marketplace.GeneMuffin.com"
         align="right"
         accentColor="#8B5CF6"
         icon={<ShoppingCart size={16} />}
